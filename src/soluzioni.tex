@@ -1,0 +1,147 @@
+\chapter{Soluzioni}
+\label{ch:soluzioni}
+
+\begin{soluzione}{ex:distrettuali_2008_1}
+    Cominciamo con il contare in quanti modi possiamo collocare la cifra dispari: essa può essere in qualunque posizione,
+    tranne nella quinta che deve essere necessariamente pari.
+
+    Indicando con $d$ la cifra dispari abbiamo le seguenti situazioni:
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \toprule
+        $d$ & & & & \\
+        \midrule
+        & $d$ & & & \\
+        \midrule
+        & & $d$ & & \\
+        \midrule
+        & & & $d$ & \\
+        \bottomrule
+    \end{tabular}
+    \end{center}
+
+    Ora contiamo in quanti modi possiamo collocare le due cifre pari uguali.
+    Esse devono occupare due posizioni delle quattro rimaste libere, inoltre non devono essere consecutive.
+    Possiamo dividere il conteggio in due parti: inizialmente contiamo le possibili combinazioni, poi togliamo il numero
+    di casi in cui le due cifre sono consecutive.
+
+    La prima parte del conteggio è comune alle quattro posizioni della cifra dispari: dobbiamo scegliere due caselle
+    in cui posizionare le cifre uguali.
+    Quindi abbiamo:
+    \begin{equation*}
+        C_{4, 2} = \binom{4}{2} = \dfrac{4!}{2! 2!} = 6
+    \end{equation*}
+
+    Considerando tutte e quattro le posizioni della cifra dispari, abbiamo al momento $6 \cdot 4 = 24$ possibilità.
+
+    Però ora dobbiamo togliere il numero di volte in cui le due cifre uguali si trovano in posizione consecutiva:
+    \begin{itemize}
+        \item nel primo caso dobbiamo togliere 3 possibilità ($2^a$ e $3^a$ cifra, $3^a$ e $4^a$ cifra, $4^a$ e $5^a$ cifra);
+        \item nel secondo caso dobbiamo togliere 2 possibilità ($3^a$ e $4^a$ cifra, $4^a$ e $5^a$ cifra);
+        \item nel terzo caso dobbiamo togliere 2 possibilità ($1^a$ e $2^a$ cifra, $4^a$ e $5^a$ cifra);
+        \item nel quarto caso dobbiamo togliere 2 possibilità ($1^a$ e $2^a$ cifra, $2^a$ e $3^a$ cifra).
+    \end{itemize}
+
+    In totale dobbiamo togliere 9 possibilità.
+    Quindi tenendo conto della cifra dispari e delle due cifre pari uguali ma non consecutive abbiamo $24 - 9 = 15$
+    possibilità.
+
+    Ora contiamo in quanti modi possiamo riempire le singole cifre:
+    \begin{itemize}
+        \item la cifra dispari la possiamo riempire in 5 modi diversi;
+        \item la prima cifra pari la possiamo riempire in 5 modi diversi (non è un problema se la prima cifra è uno 0);
+        \item la seconda cifra pari la possiamo riempire in 4 modi diversi;
+        \item la terza cifra pari la possiamo riempire in 3 modi diversi;
+        \item consideriamo come quarta cifra quella ripetuta, per cui l'abbiamo già scelta.
+    \end{itemize}
+
+    Quindi, per ciascuna delle 15 possibilità calcolate prima, possiamo riempire le cifre in
+    $5 \cdot 5 \cdot 4 \cdot 3 = 300$ modi diversi.
+
+    Quindi abbiamo in totale $15 \cdot 300 = 4500$ combinazioni.
+\end{soluzione}
+
+\begin{soluzione}{ex:distrettuali_2008_7}
+    Dobbiamo costruire un numero di 5 cifre divisibile per 11.
+    Per il criterio di divisibilità la somma delle cifre di posizione dispari meno la somma delle cifre
+    di posizione pari deve essere un multiplo di 11.
+    Nel nostro numero avremo 3 cifre di posizioni dispari e 2 cifre di posizione pari.
+
+    La somma delle cifre che abbiamo a disposizione è $1 + 2 + 4 + 7 + 9 = 23$.
+
+    Non è un numero pari quindi non possiamo sperare di avere 11 come somma delle cifre di posizioni dispari e 11
+    come somma delle cifre di posizione pari.
+
+    Potremo tentare di suddividere questi numeri in modo che la differenza delle somme sia 22.
+    Ma in questo caso avremo solo la combinazione $(2  + 4 + 7 + 9) - 1 = 22$, che non va bene perché abbiamo quattro
+    cifre da una parte e una sola dall'altra.
+
+    Non ci rimane che suddividere i numeri in modo da avere una differenza pari ad 11.
+    Se chiamiamo $x$ la somma dei numeri di posizione dispari (o pari) e $y$ la somma dei numeri di posizione pari (o
+    dispari), abbiamo:
+    \begin{equation*}
+        \begin{cases}
+            x + y = 23 \\
+            x - y = 11
+        \end{cases}
+    \end{equation*}
+
+    La soluzione di questo sistema è $x = 17$ e $y = 6$.
+
+    Il numero $x = 17$ non può essere la somma delle cifre di posizioni pari, perché gli unici due numeri minori di 10
+    che sommati fanno 17 sono 8 e 9, ma non abbiamo l'8 tra le cifre utilizzabili.
+
+    Quindi la somma delle cifre di posizioni dispari deve essere 17 e la somma delle cifre di posizioni pari deve essere
+    6.
+
+    L'unica combinazione per ottenere 6 come somma delle due cifre di posizioni pari è 2 e 4.
+    Quindi per le cifre di posizione dispari possiamo scegliere tra 1, 7 e 9;
+    per le cifre di posizioni pari possiamo scegliere tra 2 e 4.
+
+    Per collocare le tre cifre di posizioni dispari mi basta calcolare le permutazioni di 3 elementi.
+    Per collocare le due cifre di posizioni pari mi basta calcolare le permutazioni di 2 elementi.
+    Quindi la quantità di numeri che possiamo comporre è pari a:
+    \begin{equation*}
+        P_3 \cdot P_2 = 3! \cdot 2! = 6 \cdot 2 = 12
+    \end{equation*}
+\end{soluzione}
+
+\begin{soluzione}{ex:distrettuali_2016_5}
+    \emph{Nota bene.} Lo sapevi che in un dado da sei facce la somma delle facce opposte deve fare 7?
+
+    Cominciamo con il colorare la faccia con il numero 1: la possiamo colorare in 4 modi diversi.
+
+    Ora passiamo alla faccia opposta, quella con il numero 6: la possiamo colorare in 3 modi diversi, perché il colore
+    deve essere diverso da quello della faccia con il numero 1.
+
+    Quindi, limitatamente alle facce 1 e 6, le possiamo colorare in $4 \cdot 3$ modi diversi.
+
+    Lo stesso ragionamento lo possiamo fare considerando le coppie di facce 2 e 5, e 3 e 4.
+    Quindi possiamo colorare il dado in $(4 \cdot 3)^3$ modi diversi.
+
+    Ma questo non ci garantisce di usare almeno 3 colori diversi.
+    Andiamo quindi a togliere le possibili colorazioni con solo 2 colori diversi.
+
+    Per colorare il dado con solo due colori ho due possibilità per la faccia dell'1, due possibilità per la faccia del
+    2, e due possibilità per la faccia del 3.
+    Le altre facce vengono colorate di conseguenza.
+    Quindi ho in totale $2^3$ possibilità.
+
+    Però devo moltiplicare queste possibilità per il numero di possibili combinazioni di due colori scelti tra i quattro
+    di partenza, che è pari alle combinazioni di quattro elementi in gruppi da 2.
+    Quindi al totale devo sottrarre:
+    \begin{equation*}
+        2^3 \cdot \binom{4}{2} = 2^3 \cdot 3 \cdot 2
+    \end{equation*}
+
+    Ora, sfruttiamo qualche raccoglimento per semplificare il calcolo:
+    \begin{gather*}
+        (4 \cdot 3)^3 - 2^3 \cdot 3 \cdot 2 = \\
+        = (2^2 \cdot 3)^3 - 2^4 \cdot 3 = \\
+        = 2^6 \cdot 3^3 - 2^4 \cdot 3 = \\
+        = 2^4 \cdot 3 \cdot (2^2 \cdot 3^2 - 1) = \\
+        = 2^4 \cdot 3 \cdot 35 = \\
+        = 2^4 \cdot 3 \cdot 5 \cdot 7
+    \end{gather*}
+\end{soluzione}
